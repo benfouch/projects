@@ -8,5 +8,30 @@ Uses KNN to detect if the user is working out, running, or at rest. The data is 
 </p>
 
 
+# Stuff I wanna do still
+- Back prop
+- Genetic algo
+- evolutionary
+- mini max
+- random forest
+- handmade network
+- network from libs
+- KNN for image classification
+- linear regession
+- q and deep q
+- logistic regression
+- CART
+- Naive bayes
+- K means clustering
+- Support Vector Machines (SVM)
+- PCA
+- Decision tree
+- CatBoost
+- GBM
+
+# Other things I want to add to this site
+- Resume/work exp
+- About me
+- Certifications
 
 
