@@ -4,77 +4,13 @@
 </head>
 
 
-<div class="siteOptions">
-<h1> Welcome! </h1>
-<p> Click a drop down box below to veiw the project summary</p>
-<button type="button"  class="collapsible"> 
-  KNN Heart Prediction 
-</button>
-<div class="content">
+<div class="topBox">
   <p>
-    <h2> KNN heart rate prediction</h2> 
-    <p>
-    Uses KNN to detect if the user is working out, running, or at rest. The data is a day fo heart rate data from me. 
-    The Data was pulled from the WHOOP unoffical API. The model was very simple to implemet for this, most of the work came in the data cleaning. 
-    The data came unlabeled, with diffrent time zone, with diffrent time formats. There was a list of workouts and recored sleeps (with diffrent time zones) 
-    that I was able to use to map the heart rate data to thie corresponding labels. What you see below if the gragh for the 3 labeled data sets, graphed over time. 
-    The red is sleeping, Green is active, and the blue is during a workout. The model does not take time into account, as this would work too well 
-    (gotta give yourself a little bit of a challenge). 
-    </p>
-          <img src="HeartRateKNN.png" alt="Heart Rate KNN" width="500"/>
-      </p>
-    </details>
+    Benjamin Fouch, <br>serial learner.
   </p>
+  <div class="arrow"></div>
 </div>
 
-<script>
-  var coll = document.getElementsByClassName("collapsible");
-        var i;
-        
-        for (i = 0; i < coll.length; i++) {
-          coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-              content.style.display = "none";
-            } else {
-              content.style.display = "block";
-            }
-          });
-        }
-</script>
-
-
-<h1> Stuff I wanna do still</h1>
-<ul>
-  <li>Back prop</li>
-  <li>Back prop</li>
-  <li>Genetic algo</li>
-  <li>evolutionary</li>
-  <li>evolutionary</li>
-  <li>mini max</li>
-  <li>random forest</li>
-  <li>handmade network</li>
-  <li>network from libs</li>
-  <li>KNN for image classification</li>
-  <li>linear regession</li>
-  <li>q and deep q</li>
-  <li>logistic regression</li>
-  <li>CART</li>
-  <li>Naive bayes</li>
-  <li>K means clustering</li>
-  <li>Support Vector Machines (SVM)</li>
-  <li>PCA</li>
-  <li>Decision tree</li>
-  <li>CatBoost</li>
-  <li>GBM</li>
-</ul>
-
-<h1> Other things I want to add to this site </h1>
-<ul>
-  <li>Resume/work exp</li>
-  <li>About me</li>
-  <li>Certifications</li>
-</ul>
-
-</div>
+<nav>
+  <a href=”projectsPage.html”> Projects </a> 
+</nav>
