@@ -32,7 +32,13 @@
       margin-right: 20%;
       color: #fff;
       font-family: "stevie-sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    }
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.05em;
+      margin-top: 0%;
+  }
 
   .topBox {
     color: #fff;
@@ -91,4 +97,21 @@
 
 nav {
     margin: 20px 0 0 0;
-    }
+    
+}
+
+ a {
+    color: #fff;
+    font-family: "stevie-sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    letter-spacing: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.05em;
+    margin-top: 0%;
+ }
+
+ a:hover{
+    
+  }
