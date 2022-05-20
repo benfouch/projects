@@ -5,8 +5,10 @@
     padding: 18px;
     width: 100%;
     border-color: #fff;
+    border-top: 1;
     border-right: none;
     border-left: none;
+    border-bottom: none;
 
     text-align: left;
 
@@ -20,17 +22,14 @@
   }
   
   .collapsible:hover {
-    /* background-color: rgb(255, 255, 255); */
-    /* color: black; */
     color:rgb(71, 126, 255);
   }
   
   .content {
     padding: 0 18px;
-    display: none;
     overflow: hidden;
-    border-bottom: 2px solid #fff;
-
+    transition: max-height 0.2s ease-out;
+    max-height: 0; 
   }
 
   img {
@@ -105,3 +104,15 @@ nav {
  h5{
     line-height: .3;
  }
+
+ .collapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }

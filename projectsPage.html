@@ -6,13 +6,13 @@
     <script type = "text/javascript" src="scripts.js"></script>
 </head> 
 
-  <body style="background-color: black;">
-  <div class="siteOptions">
+<body style="background-color: black;">
+<div class="siteOptions">
+
   <h1 style="font-size: 40px;"> Welcome! </h1>
   <p> Click a title below to veiw the project summary</p>
-  <button type="button"  class="collapsible" onclick="toggleShow();" id="KNNHeartRateKNN">KNN Heart Rate Prediction</button>
+  <button type="button"  class="collapsible" id="KNNHeartRateKNN">KNN Heart Rate Prediction</button>
   <div class="content">
-    <p>
       <h2> KNN heart rate prediction</h2> 
       <p class="desc">
       Uses KNN to detect if the user is working out, running, or at rest. The data is a day fo heart rate data from me. 
@@ -20,36 +20,148 @@
       The data came unlabeled, with diffrent time zone, with diffrent time formats. There was a list of workouts and recored sleeps (with diffrent time zones) 
       that I was able to use to map the heart rate data to thie corresponding labels. What you see below if the gragh for the 3 labeled data sets, graphed over time. 
       The red is sleeping, Green is active, and the blue is during a workout. The model does not take time into account, as this would work too well 
-      (gotta give yourself a little bit of a challenge). 
+      (gotta give yourself a little bit of a challenge).
       </p>
-            <img src="HeartRateKNN.png" alt="Heart Rate KNN" width="500"/>
-        </p>
-      </details>  
-    </p> 
+      <img src="HeartRateKNN.png" alt="Heart Rate KNN" width="500"/>
+  </div>  
+  <hr style="margin-top:0">
+
+  <h2 style="margin-top: 50px;">Comming soon (Summer 2022):</h2>
+
+  <button type="button"  class="collapsible"  id="BackProp">Back Propigation</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+    </details>  
   </div> 
   
-  <h2> Comming soon (Summer 2022)</h2>
-  <ul style="font-weight: 300;">
-    <li>Back prop</li>
-    <li>Genetic algo</li>
-    <li>evolutionary algo</li>
-    <li>mini max</li>
-    <li>random forest</li>
-    <li>handmade network</li>
-    <li>network from libs</li>
-    <li>KNN for image classification</li>
-    <li>linear regession</li>
-    <li>q and deep q</li>
-    <li>logistic regression</li>
-    <li>CART</li>
-    <li>Naive bayes</li>
-    <li>K means clustering</li>
-    <li>Support Vector Machines (SVM)</li>
-    <li>PCA</li>
-    <li>Decision tree</li>
-    <li>CatBoost</li>
-    <li>GBM</li>
-  </ul>
+  <button type="button"  class="collapsible" id="GeneticAlgo">Genetic Algo</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+    </details>  
+  </div>
+
+  <button type="button"  class="collapsible" id="Evolutionary">Evolutionary Algo</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="Mini Max">Mini Max</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="Random">Random Forest</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="Handmade">Hand Made Network</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="TensorFlow">TensorFlow Network</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="KNNimage">KNN Image Classification</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="Linear">Linear Regression</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="Logistical">Logistical Regression</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="Q">Q Learning</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="DeepQ">Deep Q Learning</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="Cart">CART</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="Naive">Naive Bayes</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="KMeans">K Means Clustering</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="SVM">Support Vector Machines (SVM)</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="Decision">Decision Tree</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="Cat">CatBoost</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
+  <button type="button"  class="collapsible" id="GBM">GBM</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
   
   </div>
 
@@ -61,3 +173,26 @@
   </nav>
   </html>
   
+
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+          content.style.border = "none";
+          
+
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+          content.style.borderTop = "thin solid #ffffff";
+
+        } 
+      });
+    }
+</script>
