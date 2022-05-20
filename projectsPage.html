@@ -5,18 +5,16 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type = "text/javascript" src="scripts.js"></script>
 </head>
-  
+
   <body style="background-color: black;">
   <div class="siteOptions">
   <h1> Welcome! </h1>
   <p> Click a drop down box below to veiw the project summary</p>
-  <button type="button"  class="collapsible"> 
-    KNN Heart Prediction 
-  </button>
+  <button type="button"  class="collapsible" onclick="toggleShow();" id="KNNHeartRateKNN">KNN Heart Prediction</button>
   <div class="content">
     <p>
       <h2> KNN heart rate prediction</h2> 
-      <p>
+      <p class="desc">
       Uses KNN to detect if the user is working out, running, or at rest. The data is a day fo heart rate data from me. 
       The Data was pulled from the WHOOP unoffical API. The model was very simple to implemet for this, most of the work came in the data cleaning. 
       The data came unlabeled, with diffrent time zone, with diffrent time formats. There was a list of workouts and recored sleeps (with diffrent time zones) 
@@ -29,27 +27,9 @@
       </details>  
     </p> 
   </div> 
-   
-  <script>
-    var coll = document.getElementsByClassName("collapsible");
-          var i;
-          
-          for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-              this.classList.toggle("active");
-              var content = this.nextElementSibling;
-              if (content.style.display === "block") {
-                content.style.display = "none";
-              } else {
-                content.style.display = "block";
-              }
-            });
-          }
-  </script>
   
-  
-  <h1> Stuff I wanna do still</h1>
-  <ul>
+  <h2> Comming soon (Summer 2022)</h2>
+  <ul style="font-weight: 300;">
     <li>Back prop</li>
     <li>Genetic algo</li>
     <li>evolutionary algo</li>
@@ -71,17 +51,12 @@
     <li>GBM</li>
   </ul>
   
-  <h1> Other things I want to add to this site </h1>
-  <ul>
-    <li>Resume/work exp</li>
-    <li>About me</li>
-    <li>Certifications</li>
-  </ul>
   </div>
 
   <nav>
     <a href=index.html> Home </a> 
     <a href=resume.html> Resume </a> 
+    <a href="aboutMe.html"> About Me</a>
   </nav>
   </html>
   
