@@ -38,6 +38,10 @@
       font-weight: 700;
       line-height: 1.05em;
       margin-top: 0%;
+      margin-bottom: 80px;
+
+      min-width: 550px;
+      position: relative;
   }
 
   .topBox {
@@ -97,7 +101,12 @@
 
 nav {
     margin: 20px 0 0 0;
-    
+    position: fixed;
+    bottom: 0px;
+    height: 70px;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
 }
 
  a {
@@ -109,9 +118,16 @@ nav {
     font-size: 2rem;
     font-weight: 700;
     line-height: 1.05em;
-    margin-top: 0%;
+    text-decoration: none;
+    margin-right: 50px;
+    float: left;
+    padding: 15px 15px;
  }
 
- a:hover{
-    
-  }
+ .desc{
+    font-weight: 300;
+ }
+
+ h5{
+     line-height: .3;
+ }
