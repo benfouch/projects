@@ -11,6 +11,7 @@
 
   <h1 style="font-size: 40px;"> Welcome! </h1>
   <p> Click a title below to veiw the project summary</p>
+  
   <button type="button"  class="collapsible" id="KNNHeartRateKNN">KNN</button>
   <div class="content">
       <h2> KNN Heart Rate Classification </h2> 
@@ -44,6 +45,72 @@
       up the decision making process. 
     </p>
     <img src="imgs/MiniMaxRun.png" alt="MiniMax 4 in a row" width="300"/>
+  </div>
+
+  <button type="button"  class="collapsible" id="Handmade">Hand Made Network</button>
+  <div class="content">
+    <h2>Hand made Neural Network</h2> 
+    <p class="desc"> 
+      This a hand made neural network with numpy. It uses simple numpy methods and a bit of math
+      to calculate infrances. It also has a rough back propigation method, that will adjust the 
+      weights based on the loss funtion. (We'll revist a better example in the back prop section)
+      This network was made for predicting the winners of a tick tac toe game, and is an expansion of
+      a network that I made for completing boolean logic gates. Below is a snipet of some of the code, 
+      as the ourput of this program isn't terribly facinating. 
+
+      <pre style="font-size: x-small;"><code>def __init__(self, x, y, test_x, test_y, num_hidden_neurons=4, lr=1):
+        """Setup a Neural Network with a single hidden layer.  This method
+        requires two vectors of x and y values as the input and output data.
+        """
+        self._a_1 = x
+        self._test_x = test_x
+        self._test_y = test_y
+
+        self.make_weights_biases((2, 4))
+
+        self._y = y
+        self._output = np.zeros(self._y.shape)
+        self._learning_rate = lr
+
+    def load_4_layer_ttt_network(self):
+        self.make_weights_biases((9, 4))
+
+    def make_weights_biases(self, input_shape):
+        self._weights_2 = np.random.normal(size=input_shape)
+        self._w_grad_2 = np.zeros(self._weights_2.shape)
+
+        self._weights_3 = np.random.normal(size=(4, 1))
+        self._w_grad_3 = np.zeros(self._weights_3.shape)
+
+        self._biases_2 = np.random.normal(size=(1, 4))
+
+        self._biases_3 = np.random.normal(size=(1, 1))
+
+    def inference(self):
+        """
+        Use the network to make predictions for a given vector of inputs.
+        This is the math to support a feedforward pass.
+        """
+        self.h1 = sigmoid(np.dot(self._a_1, self._weights_2))
+        self.h2 = sigmoid(np.dot(self.h1, self._weights_3))
+        return self.h2
+
+    def feedforward(self):
+        self._output = self.inference()
+
+    def backprop(self):
+        d_weights2 = np.dot(self.h1.T, (2*(self._y - self._output) * 
+          sigmoid_derivative(self._output)))*self._learning_rate
+        
+        d_weights1 = np.dot(self._a_1.T, (np.dot(2 * (self._y - self._output) 
+          * sigmoid_derivative(self._output), self._weights_3.T) *
+          sigmoid_derivative(self.h1)))*self._learning_rate
+
+
+        self._weights_2 += d_weights1
+        self._weights_3 += d_weights2
+      </code></pre>
+    </p>
   </div>
 
   <hr style="margin-top:0">
@@ -81,12 +148,6 @@
     <!--dont forget <img> -->
   </div>
 
-  <button type="button"  class="collapsible" id="Handmade">Hand Made Network</button>
-  <div class="content">
-    <h2></h2> 
-    <p class="desc"> </p>
-    <!--dont forget <img> -->
-  </div>
 
   <button type="button"  class="collapsible" id="TensorFlow">TensorFlow Network</button>
   <div class="content">
