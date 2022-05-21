@@ -11,9 +11,9 @@
 
   <h1 style="font-size: 40px;"> Welcome! </h1>
   <p> Click a title below to veiw the project summary</p>
-  <button type="button"  class="collapsible" id="KNNHeartRateKNN">KNN Heart Rate Prediction</button>
+  <button type="button"  class="collapsible" id="KNNHeartRateKNN">KNN</button>
   <div class="content">
-      <h2> KNN heart rate prediction</h2> 
+      <h2> KNN Heart Rate Classification </h2> 
       <p class="desc">
       Uses KNN to detect if the user is working out, running, or at rest. The data is a day fo heart rate data from me. 
       The Data was pulled from the WHOOP unoffical API. The model was very simple to implemet for this, most of the work came in the data cleaning. 
@@ -22,9 +22,32 @@
       The red is sleeping, Green is active, and the blue is during a workout. The model does not take time into account, as this would work too well 
       (gotta give yourself a little bit of a challenge).
       </p>
-      <img src="HeartRateKNN.png" alt="Heart Rate KNN" width="500"/>
+      <img src="imgs/HeartRateKNN.png" alt="Heart Rate KNN" width="500"/>
   </div>  
+
+  <button type="button"  class="collapsible" id="Mini Max">Mini Max</button>
+  <div class="content">
+    <h2>MiniMax Connect 4 Game</h2> 
+    <p class="desc">
+      This is an impleneation of the MiniMax algo for game play. This is was made with no 
+      code copied over, all from scratch from pesudo code given <a style="font-weight: 300; margin: 0; padding: 0; font-size: 1rem; float: none;" href=https://en.wikipedia.org/wiki/Minimax#Pseudocode> here</a>. 
+      This works by scoring the values of future moves, and then choosing the optimal move, also 
+      taking into account the other player playing well. My version has depth 4 (I was 
+      limited by my laptop) This is able to beat most players, but canbe beaten. The model
+      Take about 5 second to pick a move to make, while a depth 3 will take under a second.
+      The game play in this version is not very strong(1-2 edge cases that make the game unplayable), my whole focus was one making the algo work
+      as it should. It also used alpha beta pruning to make the choices faster. Quite simply, 
+      this works by skipping a claculation if it can find that it wont be used. <br><br>
+      In the future I would work to make the game play more solid so that it can be more enjoyable. I would also consider
+      adding a real diaplay with a game board, but once again, not the purpose of this learning. <br><br>
+      Pertaining to the algo, I would want to add more optimizations taht have been found to speed
+      up the decision making process. 
+    </p>
+    <img src="imgs/MiniMaxRun.png" alt="MiniMax 4 in a row" width="300"/>
+  </div>
+
   <hr style="margin-top:0">
+
 
   <h2 style="margin-top: 50px;">Comming soon (Summer 2022):</h2>
 
@@ -45,13 +68,6 @@
   </div>
 
   <button type="button"  class="collapsible" id="Evolutionary">Evolutionary Algo</button>
-  <div class="content">
-    <h2></h2> 
-    <p class="desc"> </p>
-    <!--dont forget <img> -->
-  </div>
-
-  <button type="button"  class="collapsible" id="Mini Max">Mini Max</button>
   <div class="content">
     <h2></h2> 
     <p class="desc"> </p>
