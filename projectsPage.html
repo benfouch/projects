@@ -113,6 +113,31 @@
     </p>
   </div>
 
+  <button type="button"  class="collapsible" id="GeneticAlgo">Genetic Algo</button>
+  <div class="content">
+    <h2>Genetic Algo with bug simulation</h2> 
+    <p class="desc"> 
+      This is a very simple genetic algo implemetation. It has bugs(blue) and food (green).
+      The bugs go to the food and collect points for doing so. The bugs then target the next food and travel to it.
+      There is a speed atribute in the bug that controlls how fast it moves to the next food. At the end of the round, 
+      the bugs who land in the top 20% of scores survive to the next round, while the rest die off. 
+      The surviving bugs' speeds are used to get the speeds for the next generation. Each of the next bugs have 
+      their speed mutated(either up or down) and then the next round is played and the process is repeated. 
+      <br>
+      <br>
+      The was a fun little learning curve that this had, and it was the GUI. I had never used the 
+      tkiner package before, but it was great to learn. It will certainly me used in future projects. 
+      <br>
+      <br>
+      What you see below is a video from the simulation.
+    </p>
+    <video width="320" height="240" controls autoplay>
+      <source src="gen.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    </details>  
+  </div>
+  
   <hr style="margin-top:0">
 
 
@@ -126,16 +151,6 @@
     </details>  
   </div> 
   
-  <button type="button"  class="collapsible" id="GeneticAlgo">Genetic Algo</button>
-  <div class="content">
-    <h2></h2> 
-    <p class="desc"> </p>
-    <video width="320" height="240" controls>
-      <source src="gen.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    </details>  
-  </div>
 
   <button type="button"  class="collapsible" id="Random">Random Forest</button>
   <div class="content">

@@ -44,6 +44,14 @@
     margin-right: auto;
   }
 
+  video::-webkit-media-controls-volume-slider {
+    display:none;
+  }
+    
+  video::-webkit-media-controls-mute-button {
+    display:none;
+  }
+
   .siteOptions {
       margin-left: 20%;
       margin-right: 20%;
