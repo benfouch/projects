@@ -137,6 +137,37 @@
     </video>
     </details>  
   </div>
+
+  <button type="button"  class="collapsible" id="KMeans">K Means Clustering</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> This is a quick implemation fo a K means clustering algo from the Scilean
+      pacage. This is using the popular Iris datset. This is a commen set for this algo beacause it
+    is very refined and allows for very high accuaries. The data are also quite small so one can look
+  though the data on their own to get a good sense of it. This was mostly a practice in reading and understanding
+documenation. It was also good to practice some basic pandas methods. I spents lots of my time reading sources online
+about k Means clustering i order to help me understand what was happening under the hood. Expect a hand made version in the near future. </p>
+    <pre style="font-size: x-small;"><code>
+      from sklearn.cluster import KMeans
+      import pandas as pd
+      
+      master_data         = pd.read_csv('iris.csv')
+      master_data         = master_data.sample(frac=1).reset_index(drop=True)
+      
+      key_data            = master_data['Species']
+      train_test          = master_data[['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm',  'PetalWidthCm']]
+      
+      train_df            = train_test[:int(.80 * train_test.shape[0])]
+      test_df             = train_test[:int(.20 * train_test.shape[0])]
+      
+      train               = train_df.to_numpy()
+      test                = test_df.to_numpy()
+      
+      kmeans = KMeans(n_clusters=3).fit(train)
+      results = kmeans.predict(test)
+      self._biases_3 = np.random.normal(size=(1, 1))
+    </code></pre>
+  </div>
   
   <hr style="margin-top:0">
 
@@ -210,13 +241,6 @@
   </div>
 
   <button type="button"  class="collapsible" id="Naive">Naive Bayes</button>
-  <div class="content">
-    <h2></h2> 
-    <p class="desc"> </p>
-    <!--dont forget <img> -->
-  </div>
-
-  <button type="button"  class="collapsible" id="KMeans">K Means Clustering</button>
   <div class="content">
     <h2></h2> 
     <p class="desc"> </p>
