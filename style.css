@@ -119,6 +119,10 @@ nav {
     line-height: .3;
  }
 
+ li{
+   font-weight: lighter;
+ }
+
  .collapsible:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;
