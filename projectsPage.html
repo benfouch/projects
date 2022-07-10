@@ -184,6 +184,37 @@ about k Means clustering i order to help me understand what was happening under 
     <img src="imgs/Cnn.png" alt="Cnn loss" width="500"/>
   </div>
 
+  <button type="button"  class="collapsible" id="Random">Random Forest</button>
+  <div class="content">
+    <h2>Random Forest</h2> 
+    <p class="desc"> 
+      This was a pretty simple one. the sklearn libray for this is very simple. 
+      I used the iris data once again just to compare to the K-means model. I used a 
+      70/30 train test split with 500 estimators, and ended up with an acuracy of 97.7%. This is 
+      quite sutible for me. It was about in that range for the K-means. The main diffrence being,
+      the random forest was very very fast. With such simple calulations happening 
+      behind the sences, it make sense. I can see the use for this when trying to
+      make a quick proof of concept for the importance of diffrent vars in a data set. 
+      I'll make sure to remember this when doing EDA in the future. 
+    </p>
+    <pre style="font-size: x-small;"><code>
+      def main():
+          X, y = datasets.load_iris( return_X_y = True)
+          X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.30)
+
+          model = RandomForestClassifier(n_estimators=500)
+          model.fit(X_train, y_train)
+          pred = model.predict(X_test)
+
+          print(confusion_matrix(y_test, pred))
+          print('acc: ' + str(accuracy_score(y_test, pred)))
+
+      if (__name__):
+          main()
+    </code></pre>
+    <!--dont forget <img> -->
+  </div>
+
   <hr style="margin-top:0">
 
 
@@ -204,14 +235,6 @@ about k Means clustering i order to help me understand what was happening under 
     <!--dont forget <img> -->
     </details>  
   </div> 
-
-  <button type="button"  class="collapsible" id="Random">Random Forest</button>
-  <div class="content">
-    <h2></h2> 
-    <p class="desc"> </p>
-    <!--dont forget <img> -->
-  </div>
-
 
   <button type="button"  class="collapsible" id="Linear">Linear Regression</button>
   <div class="content">
