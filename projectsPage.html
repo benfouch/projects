@@ -176,10 +176,10 @@ about k Means clustering i order to help me understand what was happening under 
     I did the clasic mnist data sety with the LeNet model from the 1998 paper 'Gradient-Based Learning Applied to Document Recognition'
     This is the paper teh established the initial LeNet model for image classification, and has become foundational.
     I read through this and implmented the architeture with Keras. I was able to get the validation loss down to .082. I'll circle back to 
-    this model in the future and add some data augmenation to lower the overfitting and get that loss down a bit more. 
+    this model in the future and add some data augmentation to lower the overfitting and get that loss down a bit more. 
     <br>
     It's quite clear that there is overfitting in this model. As the training loss gets smaller, the validation 
-    loss stays about the same. As said above, adding some data augmentaition should fix this, or at least help reduce this. 
+    loss stays about the same. As said above, adding some data augmentation should fix this, or at least help reduce this. 
     </p>
     <img src="imgs/Cnn.png" alt="Cnn loss" width="500"/>
   </div>
@@ -213,6 +213,75 @@ about k Means clustering i order to help me understand what was happening under 
           main()
     </code></pre>
     <!--dont forget <img> -->
+    
+
+  </div>
+
+  <button type="button"  class="collapsible" id="RNN">RNN/LSTM</button>
+  <div class="content">
+    <h2>RNNs/LSTMs</h2> 
+    <p class="desc"> 
+      Here's a bit of code that I wrote for a medium artice found <a style="font-weight: 300; margin: 0; padding: 0; font-size: 1rem; float: none;" href=https://medium.com/@benjaminlfouch/recurrent-neural-networks-1908f15c6f44> here</a>. 
+      It trains on the MDIST number handwritting dataset. It's ver simple and basic, just teh LSTM layer with a tanh activation funtion
+      and a SGD optimizer ay a 0.001 learning rate. This is what I found the most optimal after an hour or so of tunning. This got me to a 
+      0.97 validation accuracy. The training was quite normal, clearly there was not vanishing gradient problem in this model. In the future I want to make a 
+      simple vanilla RNN model and try to train it to try to get the VGP to show up in the training. 
+      Just like a few of the projects. A bit of data augmentation would have helped out and when I do my data augmentation deep dive I'll include this in the testing. Stay tuned!
+    </p>
+    <pre style="font-size: x-small;"><code>
+      import tensorflow as tf
+      import keras.api._v2.keras as keras
+      from keras.api._v2.keras import layers, activations, optimizers
+
+      def run():
+          print('building model...')
+          model = keras.Sequential()
+          model.add(layers.LSTM(
+              64,
+              input_shape=(None, 28),
+              activation=activations.tanh,
+              )
+          )
+          model.add(layers.BatchNormalization())
+          model.add(layers.Dense(10))
+          print('Summary:')
+          model.summary()
+
+          print('Getting MDIST data...')
+          mnist = keras.datasets.mnist
+          (x_train,   y_train), (x_test, y_test)    = mnist.load_data()
+          x_train,    x_test                        = x_train/255.0, x_test/255.0
+          x_val,      y_val                         = x_test[:-30], y_test[:-30]
+          x_test,     y_test                        = x_test[-30:], y_test[-30:]
+
+          print('Compile model...')
+          model.compile(
+              loss        = keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+              optimizer   = optimizers.SGD(learning_rate=0.001),
+              metrics     = ["accuracy"],
+          )
+
+          print('Training and Fitting...')
+          model.fit(
+              x_train, 
+              y_train, 
+              validation_data = (x_val, y_val), 
+              batch_size      = 32, 
+              epochs          = 50,
+              callbacks       = [keras.callbacks.EarlyStopping(monitor = 'loss', patience = 3)],
+          )
+
+          print('Testing...')
+          results = []
+          for i in range(30):
+              result = tf.argmax(model.predict(tf.expand_dims(x_test[i], 0)), axis = 1)
+              results.append(1 if result.numpy() - y_test[i] == 0 else 0)
+
+          print('Final testing accuracy: ' + str(round(sum(results)/len(results), 2)))
+
+      if __name__:
+          run()
+    </code></pre>
   </div>
 
   <hr style="margin-top:0">
@@ -220,13 +289,6 @@ about k Means clustering i order to help me understand what was happening under 
 
   <h2 style="margin-top: 50px;">Comming soon (Summer 2022):</h2>
 
-  <button type="button"  class="collapsible"  id="BackProp">Back Propigation</button>
-  <div class="content">
-    <h2></h2> 
-    <p class="desc"> </p>
-    <!--dont forget <img> -->
-    </details>  
-  </div> 
   
   <button type="button"  class="collapsible"  id="WebScraping">Web Scraping</button>
   <div class="content">
@@ -306,6 +368,13 @@ about k Means clustering i order to help me understand what was happening under 
     <!--dont forget <img> -->
   </div>
   
+  <button type="button"  class="collapsible" id="Data Augmentation">Data Augmentation</button>
+  <div class="content">
+    <h2></h2> 
+    <p class="desc"> </p>
+    <!--dont forget <img> -->
+  </div>
+
   </div>
 
   <nav>
