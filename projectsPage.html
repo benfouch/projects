@@ -57,59 +57,7 @@
       This network was made for predicting the winners of a tick tac toe game, and is an expansion of
       a network that I made for completing boolean logic gates. Below is a snipet of some of the code, 
       as the ourput of this program isn't terribly facinating. 
-
-      <pre style="font-size: x-small;"><code>def __init__(self, x, y, test_x, test_y, num_hidden_neurons=4, lr=1):
-        """Setup a Neural Network with a single hidden layer.  This method
-        requires two vectors of x and y values as the input and output data.
-        """
-        self._a_1 = x
-        self._test_x = test_x
-        self._test_y = test_y
-
-        self.make_weights_biases((2, 4))
-
-        self._y = y
-        self._output = np.zeros(self._y.shape)
-        self._learning_rate = lr
-
-    def load_4_layer_ttt_network(self):
-        self.make_weights_biases((9, 4))
-
-    def make_weights_biases(self, input_shape):
-        self._weights_2 = np.random.normal(size=input_shape)
-        self._w_grad_2 = np.zeros(self._weights_2.shape)
-
-        self._weights_3 = np.random.normal(size=(4, 1))
-        self._w_grad_3 = np.zeros(self._weights_3.shape)
-
-        self._biases_2 = np.random.normal(size=(1, 4))
-
-        self._biases_3 = np.random.normal(size=(1, 1))
-
-    def inference(self):
-        """
-        Use the network to make predictions for a given vector of inputs.
-        This is the math to support a feedforward pass.
-        """
-        self.h1 = sigmoid(np.dot(self._a_1, self._weights_2))
-        self.h2 = sigmoid(np.dot(self.h1, self._weights_3))
-        return self.h2
-
-    def feedforward(self):
-        self._output = self.inference()
-
-    def backprop(self):
-        d_weights2 = np.dot(self.h1.T, (2*(self._y - self._output) * 
-          sigmoid_derivative(self._output)))*self._learning_rate
-        
-        d_weights1 = np.dot(self._a_1.T, (np.dot(2 * (self._y - self._output) 
-          * sigmoid_derivative(self._output), self._weights_3.T) *
-          sigmoid_derivative(self.h1)))*self._learning_rate
-
-
-        self._weights_2 += d_weights1
-        self._weights_3 += d_weights2
-      </code></pre>
+      <script src="https://gist.github.com/benfouch/6ddcbef8f01f68ab59accca2964bd511.js"></script>        
     </p>
   </div>
 
@@ -143,30 +91,11 @@
     <h2>K Means Clustering</h2> 
     <p class="desc"> This is a quick implemation fo a K means clustering algo from the Scilean
       pacage. This is using the popular Iris datset. This is a commen set for this algo beacause it
-    is very refined and allows for very high accuaries. The data are also quite small so one can look
-  though the data on their own to get a good sense of it. This was mostly a practice in reading and understanding
-documenation. It was also good to practice some basic pandas methods. I spents lots of my time reading sources online
-about k Means clustering i order to help me understand what was happening under the hood. Expect a hand made version in the near future. </p>
-    <pre style="font-size: x-small;"><code>
-      from sklearn.cluster import KMeans
-      import pandas as pd
-      
-      master_data         = pd.read_csv('iris.csv')
-      master_data         = master_data.sample(frac=1).reset_index(drop=True)
-      
-      key_data            = master_data['Species']
-      train_test          = master_data[['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm',  'PetalWidthCm']]
-      
-      train_df            = train_test[:int(.80 * train_test.shape[0])]
-      test_df             = train_test[:int(.20 * train_test.shape[0])]
-      
-      train               = train_df.to_numpy()
-      test                = test_df.to_numpy()
-      
-      kmeans = KMeans(n_clusters=3).fit(train)
-      results = kmeans.predict(test)
-      self._biases_3 = np.random.normal(size=(1, 1))
-    </code></pre>
+      is very refined and allows for very high accuaries. The data are also quite small so one can look
+      though the data on their own to get a good sense of it. This was mostly a practice in reading and understanding
+      documenation. It was also good to practice some basic pandas methods. I spents lots of my time reading sources online
+      about k Means clustering i order to help me understand what was happening under the hood. Expect a hand made version in the near future. </p>
+    <script src="https://gist.github.com/benfouch/72375f4145e6a83b3657654861962f1a.js"></script>
   </div>
   
   <button type="button"  class="collapsible" id="KNNimage">CNN Image Classification</button>
@@ -197,24 +126,7 @@ about k Means clustering i order to help me understand what was happening under 
       make a quick proof of concept for the importance of diffrent vars in a data set. 
       I'll make sure to remember this when doing EDA in the future. 
     </p>
-    <pre style="font-size: x-small;"><code>
-      def main():
-          X, y = datasets.load_iris( return_X_y = True)
-          X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.30)
-
-          model = RandomForestClassifier(n_estimators=500)
-          model.fit(X_train, y_train)
-          pred = model.predict(X_test)
-
-          print(confusion_matrix(y_test, pred))
-          print('acc: ' + str(accuracy_score(y_test, pred)))
-
-      if (__name__):
-          main()
-    </code></pre>
-    <!--dont forget <img> -->
-    
-
+    <script src="https://gist.github.com/benfouch/b6244c092100d4295fa52c71e645d0c7.js"></script>
   </div>
 
   <button type="button"  class="collapsible" id="RNN">RNN/LSTM</button>
@@ -228,60 +140,7 @@ about k Means clustering i order to help me understand what was happening under 
       simple vanilla RNN model and try to train it to try to get the VGP to show up in the training. 
       Just like a few of the projects. A bit of data augmentation would have helped out and when I do my data augmentation deep dive I'll include this in the testing. Stay tuned!
     </p>
-    <pre style="font-size: x-small;"><code>
-      import tensorflow as tf
-      import keras.api._v2.keras as keras
-      from keras.api._v2.keras import layers, activations, optimizers
-
-      def run():
-          print('building model...')
-          model = keras.Sequential()
-          model.add(layers.LSTM(
-              64,
-              input_shape=(None, 28),
-              activation=activations.tanh,
-              )
-          )
-          model.add(layers.BatchNormalization())
-          model.add(layers.Dense(10))
-          print('Summary:')
-          model.summary()
-
-          print('Getting MDIST data...')
-          mnist = keras.datasets.mnist
-          (x_train,   y_train), (x_test, y_test)    = mnist.load_data()
-          x_train,    x_test                        = x_train/255.0, x_test/255.0
-          x_val,      y_val                         = x_test[:-30], y_test[:-30]
-          x_test,     y_test                        = x_test[-30:], y_test[-30:]
-
-          print('Compile model...')
-          model.compile(
-              loss        = keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-              optimizer   = optimizers.SGD(learning_rate=0.001),
-              metrics     = ["accuracy"],
-          )
-
-          print('Training and Fitting...')
-          model.fit(
-              x_train, 
-              y_train, 
-              validation_data = (x_val, y_val), 
-              batch_size      = 32, 
-              epochs          = 50,
-              callbacks       = [keras.callbacks.EarlyStopping(monitor = 'loss', patience = 3)],
-          )
-
-          print('Testing...')
-          results = []
-          for i in range(30):
-              result = tf.argmax(model.predict(tf.expand_dims(x_test[i], 0)), axis = 1)
-              results.append(1 if result.numpy() - y_test[i] == 0 else 0)
-
-          print('Final testing accuracy: ' + str(round(sum(results)/len(results), 2)))
-
-      if __name__:
-          run()
-    </code></pre>
+    <script src="https://gist.github.com/benfouch/222587d76c483212845426dd5a174819.js"></script>
   </div>
 
   <button type="button"  class="collapsible"  id="WebScraping">Web Scraping</button>
@@ -289,87 +148,10 @@ about k Means clustering i order to help me understand what was happening under 
     <h2>Web Scraping</h2> 
     <p class="desc"> Few main parts to this. I used Beautiful Soup to grab the html from the urls and process them down to the text. This 
       gets the info form all the movies released in 2021. It grabs the Title, Genre, Rating, and Director. This is the data that I'll use 
-    for some future models. Using data that you colected for models is like cooking with food you grew. Just feels right.<br>
-    I also used some parrilization on this to help speed it up. 10 processes is about max number of processes that I could use before the task got slower 
-  from the process manager having to over delegate. It sped it up about 4x. Caution when using this code: IMDb will ban your IP for a bit after about 300 url pulls</p>
-    <!--dont forget <img> -->
-    <pre style="font-size: x-small;"><code>
-    from bs4 import BeautifulSoup
-    from requests import get
-    import pandas as pd
-    from multiprocessing import Pool
-    import time
-
-    def process_link(link : str):
-        df = pd.DataFrame(columns=[
-            'Title'   ,
-            'Genres'  ,
-            'Ratings' ,
-            'Director',
-        ])
-        response = get(link)
-        print(link)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        movie_containers    = soup.find_all('div', class_ = 'lister-item mode-advanced') # this is where all the results are
-        for i in range(50):
-            try : 
-                movie_content       = movie_containers[i].find('div', class_ = 'lister-item-content')
-                movie_title         = movie_content.a.text.strip()
-                movie_genres        = movie_content.find('span', class_ = 'genre').text.strip()
-                movie_ratings       = movie_content.find('div', class_ = 'ratings-bar').find('div', 'inline-block ratings-imdb-rating').strong.text.strip()
-                movie_people        = movie_content.find('p', class_ = '')
-                if 'Director' in movie_people.text:
-                    movie_director  = movie_people.find_all('a')[0].text.strip()
-                else:
-                    movie_director  = None
-
-                results_dict = {
-                    'Title'     : movie_title,
-                    'Genres'    : movie_genres,
-                    'Ratings'   : movie_ratings,
-                    'Director'  : movie_director,
-                }
-                df = pd.concat([df, pd.DataFrame([results_dict])], ignore_index=True)
-            except Exception as e:
-                print(e)
-                print('info get failed for URL: ' + link + '\nAt index: ' + str(i))
-        return df
-
-    def main(test : bool, samples : int):
-        if test:
-            start_time = time.time()
-            results = []
-            num_samples = 1000
-            with Pool(10) as p:
-                results.append(p.map(process_link, ['https://www.imdb.com/search/title?release_date=2021&sort=num_votes,desc&start=' + str(j*50 + 1) for j in range(int(num_samples/50))]))
-            print("--- %s seconds with multiprocessing---" % (time.time() - start_time))
-
-            start_time = time.time()
-            results = []
-            num_samples = 1000
-            results = [process_link(l) for l in ['https://www.imdb.com/search/title?release_date=2021&sort=num_votes,desc&start=' + str(j*50 + 1) for j in range(int(num_samples/50))]]
-            print("--- %s seconds on single thread---" % (time.time() - start_time))
-        else:
-            results = []
-            num_samples = samples
-            with Pool(10) as p:
-                results += (p.map(process_link, ['https://www.imdb.com/search/title?release_date=2021&sort=num_votes,desc&start=' + str(j*50 + 1) for j in range(int(num_samples/50))]))
-            return results 
-
-    if __name__ == '__main__':
-        df = pd.DataFrame(columns=[
-            'Title'   ,
-            'Genres'  ,
-            'Ratings' ,
-            'Director',
-        ])
-        results = main(False, 100000)
-        result_df = pd.concat(results, ignore_index=True)
-        result_df.to_csv('movie_data.csv')
-        result_df.to_pickle('movie_dataframe')
-        print(result_df.head())
-        print(result_df.shape)
-      </code></pre>
+      for some future models. Using data that you colected for models is like cooking with food you grew. Just feels right.<br>
+      I also used some parrilization on this to help speed it up. 10 processes is about max number of processes that I could use before the task got slower 
+      from the process manager having to over delegate. It sped it up about 4x. Caution when using this code: IMDb will ban your IP for a bit after about 300 url pulls</p>
+    <script src="https://gist.github.com/benfouch/9fb49986c2f1b79c9049af0b9bf9cba4.js"></script>
     </details>  
   </div> 
 
